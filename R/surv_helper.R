@@ -42,7 +42,7 @@ make_surv_plot <- function(data, fit, title, legend_label, break_x_by = 12, pval
         legend.title = element_blank(),
         legend.justification = c("center"),
         legend.text = element_text(size = 20, face = 'bold'),
-        plot.margin = margin()
+        plot.margin = margin(l=-0.8,unit="cm")
       ),
     tables.theme = theme(
       title = element_blank(),
@@ -50,7 +50,8 @@ make_surv_plot <- function(data, fit, title, legend_label, break_x_by = 12, pval
       legend.text = element_text(size = 5),
       axis.line = element_blank(),
       axis.ticks = element_blank(),
-      axis.text.x = element_blank()
+      axis.text.x = element_blank(),
+      plot.margin = margin(l=-0.8,unit="cm")
     )
   )
 
