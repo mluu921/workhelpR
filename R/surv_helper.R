@@ -1,4 +1,4 @@
-make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.05), legend_coord = c(.9, .9), plot_table_ratio = c(.8, .2),
+make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.05), legend_coord = c(.01, .01), plot_table_ratio = c(.8, .2),
                            pval_text = T, pval_text_size = 8, xlim = NULL, risk_table_text_size = 5, legend_text_size = 20, plot_palette = 'Set1') {
   p <- survminer::ggsurvplot(
     fit = fit,
@@ -26,8 +26,10 @@ make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x
     ggtheme = survminer::theme_survminer() +
       theme(
         legend.title = element_blank(),
-        legend.justification = c("left"),
+        legend.justification = c("left", 'bottom'),
         legend.text = element_text(size = legend_text_size, face = 'bold'),
+        legend.box.margin = margin(0, 0, 0, 0),
+        legend.box.background = element_blank(),
         plot.margin = margin(.5, .5, 0, .5, "cm")
       ),
     tables.theme = theme(
