@@ -1,4 +1,4 @@
-propensity_hist <- function (matchit_object, plot_title, binwidth = NULL) {
+propensity_hist <- function (matchit_object, plot_title = NULL, binwidth = NULL) {
 
   plot_data <- as.data.frame(matchit_object$X)
   plot_data$treat <- matchit_object$treat

@@ -1,5 +1,5 @@
 make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.25), legend_coord = c(.01, .01), plot_table_ratio = c(.8, .2),
-                           pval_text = T, pval_text_size = 8, xlim = NULL, risk_table_text_size = 5, legend_text_size = 20, plot_palette = 'Set1') {
+                           pval_text = T, pval_text_size = 7, xlim = NULL, risk_table_text_size = 5, legend_text_size = 18, plot_palette = 'Set1') {
   p <- survminer::ggsurvplot(
     fit = fit,
     data = data,
