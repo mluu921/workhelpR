@@ -1,5 +1,5 @@
 make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.25), legend_coord = c(.01, .01), plot_table_ratio = c(.8, .2),
-                           pval_text = T, pval_text_size = 7, xlim = NULL, risk_table_text_size = 5, legend_text_size = 18, plot_palette = 'Set1') {
+                           pval_text = T, pval_text_size = 7, conf_int = F, xlim = NULL, risk_table_text_size = 5, legend_text_size = 18, plot_palette = 'Set1', xlab = "Time (Months)", ylab = 'Overall Survival') {
   p <- survminer::ggsurvplot(
     fit = fit,
     data = data,
@@ -8,14 +8,15 @@ make_surv_plot <- function(data, fit, title = NULL, legend_label = NULL, break_x
     break.time.by = break_x_by,
     tables.y.text = F,
     censor = F,
+    conf.int = conf_int,
     pval = pval_text,
     pval.coord = pval_coord,
     pval.size = pval_text_size,
     surv.scale = "percent",
     legend = legend_coord,
     palette = plot_palette,
-    xlab = "Time (Months)",
-    ylab = 'Overall Survival',
+    xlab = xlab,
+    ylab = ylab,
     xlim = xlim,
     legend.labs = legend_label,
     fontsize = risk_table_text_size,
