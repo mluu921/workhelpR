@@ -1,5 +1,5 @@
 paste_to_excel <- function(data, ...) {
-  write.table(data, "clipboard", sep = "\t", ...)
+  write.table(data, "clipboard", sep = "\t", col.names = F, ...)
 }
 
 copy_from_excel <- function(header=TRUE, ...) {
