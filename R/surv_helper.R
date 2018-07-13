@@ -33,7 +33,7 @@ make_surv_plot <- function(data, fit, title = NULL,
         legend.justification = c("left", 'bottom'),
         legend.text = element_text(size = legend_text_size, face = 'bold'),
         legend.box.margin = margin(0, 0, 0, 0),
-        legend.box.background = element_blank(),
+        legend.background = element_rect(fill = 'transparent'),
         plot.margin = margin(.5, .5, 0, .5, "cm")
       ),
     tables.theme = theme(
