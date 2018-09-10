@@ -29,7 +29,7 @@ download_biostats_catalog <- function(username = NULL, password = NULL) {
   filled_form <- s %>%
     rvest::html_form() %>%
     .[[2]] %>%
-    suppressMessages(rvest::set_values(., userName = username, password = password))
+    rvest::set_values(., userName = username, password = password)
 
   s <- rvest::submit_form(s, filled_form)
 
