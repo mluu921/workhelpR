@@ -1,5 +1,5 @@
 make_surv_plot <- function(data, fit, title = NULL,
-                           legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.20), logrank_weights = NULL, ylab = 'Overall Survival',
+                           legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.20), logrank_weights = NULL, ylab = 'Overall Survival', xlab = "Time (Months)", xscale = NULL,
                            legend_coord = c(.01, .01), plot_table_ratio = c(.8, .2),
                            pval_text = T, pval_text_size = 8, xlim = NULL, risk_table_text_size = 5,
                            legend_text_size = 20, plot_palette = 'Set1', surv_median_line = 'none') {
@@ -18,7 +18,7 @@ make_surv_plot <- function(data, fit, title = NULL,
     surv.scale = "percent",
     legend = legend_coord,
     palette = plot_palette,
-    xlab = "Time (Months)",
+    xlab = xlab,
     ylab = ylab,
     surv.median.line = surv_median_line,
     xlim = xlim,
@@ -28,6 +28,7 @@ make_surv_plot <- function(data, fit, title = NULL,
     font.y = c(20,'bold'),
     legend.title = '',
     font.tickslab = 18,
+    xscale = xscale,
     ggtheme = survminer::theme_survminer() +
       theme(
         legend.title = element_blank(),
@@ -53,3 +54,4 @@ make_surv_plot <- function(data, fit, title = NULL,
   p <- cowplot::plot_grid(p$plot, p$table, nrow = 2, align = 'v', rel_heights = plot_table_ratio)
   return(p)
 }
+
