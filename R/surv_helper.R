@@ -1,8 +1,22 @@
-make_surv_plot <- function(data, fit, title = NULL,
-                           legend_label = NULL, break_x_by = 12, pval_coord = c(0, 0.20), logrank_weights = NULL, ylab = 'Overall Survival', xlab = "Time (Months)", xscale = NULL,
-                           legend_coord = c(.01, .01), plot_table_ratio = c(.8, .2),
-                           pval_text = T, pval_text_size = 8, xlim = NULL, risk_table_text_size = 5,
-                           legend_text_size = 20, plot_palette = 'Set1', surv_median_line = 'none') {
+make_surv_plot <- function(data,
+                           fit,
+                           title = NULL,
+                           legend_label = NULL,
+                           break_x_by = 12,
+                           pval_coord = c(0, 0.20),
+                           logrank_weights = NULL,
+                           ylab = 'Overall Survival',
+                           xlab = "Time (Months)",
+                           legend_coord = c(.01, .01),
+                           plot_table_ratio = c(.8, .2),
+                           axis_title_size = c(20, 'bold'),
+                           pval_text = T,
+                           pval_text_size = 8,
+                           xlim = NULL,
+                           risk_table_text_size = 5,
+                           legend_text_size = 20,
+                           plot_palette = 'Set1',
+                           surv_median_line = 'none') {
   p <- survminer::ggsurvplot(
     fit = fit,
     data = data,
@@ -24,11 +38,10 @@ make_surv_plot <- function(data, fit, title = NULL,
     xlim = xlim,
     legend.labs = legend_label,
     fontsize = risk_table_text_size,
-    font.x = c(20,'bold'),
-    font.y = c(20,'bold'),
+    font.x = axis_title_size,
+    font.y = axis_title_size,
     legend.title = '',
     font.tickslab = 18,
-    xscale = xscale,
     ggtheme = survminer::theme_survminer() +
       theme(
         legend.title = element_blank(),
@@ -49,9 +62,16 @@ make_surv_plot <- function(data, fit, title = NULL,
     )
   )
 
-  p$plot <- p$plot + guides(colour = guide_legend(override.aes = list(size=5, alpha = 1)))
+  p$plot <-
+    p$plot + guides(colour = guide_legend(override.aes = list(size = 5, alpha = 1)))
 
-  p <- cowplot::plot_grid(p$plot, p$table, nrow = 2, align = 'v', rel_heights = plot_table_ratio)
+  p <-
+    cowplot::plot_grid(
+      p$plot,
+      p$table,
+      nrow = 2,
+      align = 'v',
+      rel_heights = plot_table_ratio
+    )
   return(p)
 }
-
