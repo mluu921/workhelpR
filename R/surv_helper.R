@@ -15,6 +15,7 @@ make_surv_plot <- function(data,
                            xlim = NULL,
                            risk_table_text_size = 5,
                            legend_text_size = 20,
+                           fun = NULL,
                            plot_palette = 'Set1',
                            surv_median_line = 'none') {
   p <- survminer::ggsurvplot(
@@ -42,6 +43,7 @@ make_surv_plot <- function(data,
     font.y = axis_title_size,
     legend.title = '',
     font.tickslab = 18,
+    fun = fun,
     ggtheme = survminer::theme_survminer() +
       theme(
         legend.title = element_blank(),
