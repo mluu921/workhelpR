@@ -46,6 +46,7 @@ make_surv_plot <- function(data,
     font.y = axis_title_size,
     legend.title = '',
     font.tickslab = 18,
+    axes.offset = F,
     fun = fun,
     ggtheme = survminer::theme_survminer() +
       theme(
